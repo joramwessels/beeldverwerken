@@ -34,7 +34,7 @@ else
                 new_y = imsize(2);
             end
             color = image(new_x, new_y);
-        case('periodic')   
+        case('periodic')
            new_x = x;
            new_y = y;
            while new_x < 1
