@@ -33,22 +33,22 @@ else
             elseif y >= imsize(2)
                 new_y = imsize(2);
             end
-            color = image(new_x, new_y);
+            color = pixelValue(image, new_x, new_y, method, border);
         case('periodic')
            new_x = x;
            new_y = y;
            while new_x < 1
-               new_x = new_x + imsize(1);
+               new_x = new_x + (imsize(1)-1);
            end
-           while new_x >= imsize(1)
-               new_x = new_x - imsize(1);
+           while new_x > imsize(1)
+               new_x = new_x - (imsize(1)-1);
            end
            while new_y < 1
-               new_y = new_y + imsize(2);
+               new_y = new_y + (imsize(2)-1);
            end
-           while new_y >= imsize(2)
-               new_y = new_y - imsize(2);
+           while new_y > imsize(2)
+               new_y = new_y - (imsize(2)-1);
            end
-           color = image(new_x, new_y);
+           color = pixelValue(image, new_x, new_y, method, border);
     end
 end
